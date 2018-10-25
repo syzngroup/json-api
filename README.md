@@ -1,2 +1,4 @@
 # json-api
-JSON Api model
+JSON Api model package.
+
+THIS PACKAGE IS UNDER DEVELOPMENT
