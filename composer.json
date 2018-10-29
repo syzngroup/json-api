@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Syzn\\JsonApi\\Tests\\": "tests/assets/"
+            "Syzn\\JsonApi\\Tests\\": "tests"
         }
     },
     "require-dev": {
