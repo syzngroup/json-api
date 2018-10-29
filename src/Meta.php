@@ -2,7 +2,9 @@
 
 namespace Syzn\JsonApi;
 
-class Meta
+use Syzn\JsonApi\Contracts\MetaInterface;
+
+class Meta implements MetaInterface
 {
     /**
      * Meta information store
@@ -10,6 +12,20 @@ class Meta
      * @var array
      */
     protected $items = [];
+
+    /**
+     * Retrieve meta item by key
+     *
+     * @param string $key
+     *
+     * @param mixed $default
+     *
+     * @return mixed
+     */
+    public function get(string $key, $default = null)
+    {
+        return empty($this->items[$key]) ? $default : $this->items[$key];
+    }
 
     /**
      * Add / update meta item
