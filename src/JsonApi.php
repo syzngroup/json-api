@@ -15,7 +15,7 @@ class JsonApi implements JsonApiInterface
      *
      * @return void
      */
-    public function __construct(string $version, ?MetaInterface $meta)
+    public function __construct(string $version, ?MetaInterface $meta = null)
     {
         $this->version = $version;
         $this->meta = $meta;
@@ -48,10 +48,14 @@ class JsonApi implements JsonApiInterface
      */
     public function toJsonApi(): array
     {
-        return [
-            'version' => $this->getVersion(),
-            'meta' => $this->getMeta()
-                ->toJsonApi()
+        $json_api =  [
+            'version' => $this->getVersion()
         ];
+
+        if ($meta = $this->getMeta()) {
+            $json_api['meta'] = $meta->toJsonApi();
+        }
+
+        return $json_api;
     }
 }
