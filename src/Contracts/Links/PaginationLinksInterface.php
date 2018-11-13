@@ -4,8 +4,9 @@ namespace Syzn\JsonApi\Contracts\Links;
 
 use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
 use Syzn\JsonApi\Contracts\Links\LinkInterface;
+use Syzn\JsonApi\Contracts\Links\LinksInterface;
 
-interface PaginationLinksInterface extends EncodableJsonApiStructure
+interface PaginationLinksInterface extends LinksInterface
 {
     /**
      * Retrieve first page url

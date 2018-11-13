@@ -45,22 +45,6 @@ class Links implements LinksInterface
     }
 
     /**
-     * Retrieve pagination links
-     *
-     * @return Syzn\JsonApi\Contracts\PaginationLinkInterface
-     */
-    public function getPagination(): ?PaginationLinksInterface
-    {
-        return $this->pagination_links;
-    }
-
-    public function setPagination(PaginationLinksInterface $pagination_links): Links
-    {
-        $this->pagination_links = $pagination_links;
-        return $this;
-    }
-
-    /**
      * Convert instance to json api encodable structure
      *
      * @return array
@@ -75,10 +59,6 @@ class Links implements LinksInterface
 
         if ($related = $this->getRelated()) {
             $links['related'] = $related->toJsonApi();
-        }
-
-        if ($this->pagination_links) {
-            $links = array_merge($links, $this->pagination_links->toJsonApi());
         }
 
         return $links;

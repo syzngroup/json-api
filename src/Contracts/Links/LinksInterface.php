@@ -21,11 +21,4 @@ interface LinksInterface extends EncodableJsonApiStructure
      * @return Syzn\JsonApi\Contracts\Links\LinkInterface
      */
     public function getRelated(): ?LinkInterface;
-
-    /**
-     * Retrieve pagination links
-     *
-     * @return Syzn\JsonApi\Contracts\PaginationLinkInterface
-     */
-    public function getPagination(): ?PaginationLinksInterface;
 }

@@ -6,7 +6,7 @@ use Syzn\JsonApi\Contracts\Links\LinkInterface;
 use Syzn\JsonApi\Contracts\Links\PaginationLinksInterface;
 use Syzn\JsonApi\Links\Links;
 
-class PaginationLinks implements PaginationLinksInterface
+class PaginationLinks extends Links implements PaginationLinksInterface
 {
 
     const FIRST_KEYWORD = "first";
@@ -88,13 +88,18 @@ class PaginationLinks implements PaginationLinksInterface
      *
      * @return array
      */
-    public function toJsonApi()
+    public function toJsonApi(): array
     {
-        $links = [];
-
-        if ($first = $this->getFirst()) {
-            $links[self::FIRST_KEYWORD] = $first->toJsonApi();
-        }
+        $links = array_merge(
+            parent::toJsonApi(),
+            [
+                self::FIRST_KEYWORD => $this->getFirst()
+                    ->toJsonApi(),
+                self::LAST_KEYWORD => null,
+                self::PREV_KEYWORD => null,
+                self::NEXT_KEYWORD => null
+            ]
+        );
 
         if ($last = $this->getLast()) {
             $links[self::LAST_KEYWORD] = $last->toJsonApi();
@@ -108,7 +113,7 @@ class PaginationLinks implements PaginationLinksInterface
             $links[self::NEXT_KEYWORD] = $next->toJsonApi();
         }
 
-        // TODO throw exception if links is empty
+        // TODO throw exception if links is empty (+ add test)
 
         return $links;
     }
