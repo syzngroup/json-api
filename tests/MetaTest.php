@@ -25,11 +25,11 @@ final class MetaTest extends TestCase
             ->set("author", "Yonatan Naxon")
             ->set("publish_date", "28/11/2018");
 
-        $expcted_meta_rendered = [
+        $expected_meta_rendered = [
             "author" => "Yonatan Naxon",
             "publish_date" => "28/11/2018"
         ];
 
-        $this->assertEquals($meta->toJsonApi(), $expcted_meta_rendered);
+        $this->assertEquals($meta->toJsonApi(), $expected_meta_rendered);
     }
 }
