@@ -15,7 +15,7 @@ class Link implements LinkInterface
      *
      * @return string
      */
-    public function getHref(): string
+    public function getHref(): ?string
     {
         return $this->href;
     }
@@ -49,14 +49,24 @@ class Link implements LinkInterface
      */
     public function toJsonApi()
     {
-        if ($meta = $this->getMeta()) {
-            return [
-                'href' => $this->getHref(),
-                'meta' => $this->getMeta()
-                    ->toJsonApi()
-            ];
+        $link = [];
+
+        $href = $this->getHref();
+        $meta = $this->getMeta();
+
+        if ($href) {
+            if (!$meta) {
+                return $href;
+            }
+
+            $link['href'] = $href;
         }
 
-        return $this->getHref();
+        if ($meta = $this->getMeta()) {
+            $link['meta'] = $this->getMeta()
+                    ->toJsonApi();
+        }
+
+        return $link;
     }
 }
