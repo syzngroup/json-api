@@ -12,7 +12,7 @@ class ResourceIdentifier implements ResourceIdentifierInterface
      *
      * @var string
      */
-    protected $type;
+    private $type;
 
     /**
      * Resource id
