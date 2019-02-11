@@ -28,7 +28,6 @@ class ResourceIdentifier implements ResourceIdentifierInterface
      */
     public function __construct(DataSourceInterface $data_source)
     {
-        $this->data_source = $data_source;
         $this->setIdentifier($data_source->getIdentifier());
     }
 
