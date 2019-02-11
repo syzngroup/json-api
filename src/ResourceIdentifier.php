@@ -85,9 +85,8 @@ class ResourceIdentifier implements ResourceIdentifierInterface
     public function toJsonApi(): array
     {
         return [
-            'type' => $this->type,
+            'type' => $this->getType(),
             'id' => $this->getIdentifier(),
         ];
     }
-
 }
