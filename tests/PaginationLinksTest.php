@@ -97,7 +97,7 @@ class PaginationLinksTest extends TestCase
         $this->assertEquals($expected_jsonapi_rendered_links, $links->toJsonApi());
     }
 
-   public function testRendersToJsonApiWithFirstOnly()
+    public function testRendersToJsonApiWithFirstOnly()
     {
         $self = LinkFactory::create(
             "example/1"

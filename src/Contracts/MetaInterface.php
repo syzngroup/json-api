@@ -2,9 +2,9 @@
 
 namespace Syzn\JsonApi\Contracts;
 
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 
-interface MetaInterface extends EncodableJsonApiStructure
+interface MetaInterface extends EncodableJsonApiStructureInterface
 {
 
 }

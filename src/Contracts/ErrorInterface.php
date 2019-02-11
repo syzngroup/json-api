@@ -3,9 +3,9 @@
 namespace Syzn\JsonApi\Contracts;
 
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 
-interface ErrorInterface extends EncodableJsonApiStructure
+interface ErrorInterface extends EncodableJsonApiStructureInterface
 {
     /**
      * Retrieve unique error identifier

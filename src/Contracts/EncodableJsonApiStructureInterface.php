@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts;
 
-interface EncodableJsonApiStructure
+interface EncodableJsonApiStructureInterface
 {
     /**
      * Convert instance to json api encodable structure

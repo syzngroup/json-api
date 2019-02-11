@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts\Links;
 
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 use Syzn\JsonApi\Contracts\Links\LinkInterface;
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
 

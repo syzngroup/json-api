@@ -3,9 +3,9 @@
 namespace Syzn\JsonApi\Contracts;
 
 use Syzn\JsonApi\Contracts\MetaInterface;
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 
-interface JsonApiInterface extends EncodableJsonApiStructure
+interface JsonApiInterface extends EncodableJsonApiStructureInterface
 {
     /**
      * Retrieve json api version

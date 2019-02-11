@@ -3,9 +3,9 @@
 namespace Syzn\JsonApi\Contracts\Links;
 
 use Syzn\JsonApi\Contracts\MetaInterface;
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 
-interface LinkInterface extends EncodableJsonApiStructure
+interface LinkInterface extends EncodableJsonApiStructureInterface
 {
     /**
      * Retrieve link url

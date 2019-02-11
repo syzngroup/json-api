@@ -2,11 +2,11 @@
 
 namespace Syzn\JsonApi\Contracts\Links;
 
-use Syzn\JsonApi\Contracts\EncodableJsonApiStructure;
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 use Syzn\JsonApi\Contracts\Links\LinkInterface;
 use Syzn\JsonApi\Contracts\Links\PaginationLinksInterface;
 
-interface LinksInterface extends EncodableJsonApiStructure
+interface LinksInterface extends EncodableJsonApiStructureInterface
 {
     /**
      * Retrieve self link
