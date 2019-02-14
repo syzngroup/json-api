@@ -21,7 +21,7 @@ class RelationshipsFactory
         $relationship = new ToOneRelationship;
 
         if ($resource) {
-            $relationship->setResource($resource);
+            $relationship->setData($resource);
         }
 
         if ($links) {
@@ -45,7 +45,7 @@ class RelationshipsFactory
         $relationship = new ToManyRelationship;
 
         if ($resources) {
-            $relationship->setResources($resources);
+            $relationship->setData($resources);
         }
 
         if ($links) {
