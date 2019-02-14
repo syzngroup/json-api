@@ -12,7 +12,7 @@ abstract class Error implements ErrorInterface
      *
      * @return mixed
      */
-    abstract public function getIdentifier();
+    abstract public function getId();
 
     /**
      * Retrieve links instance related to the error
@@ -58,7 +58,7 @@ abstract class Error implements ErrorInterface
     {
         $error = [];
 
-        if ($id = $this->getIdentifier()) {
+        if ($id = $this->getId()) {
             $error['id'] =  $id;
         }
 

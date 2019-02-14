@@ -44,7 +44,7 @@ class ErrorsRepository implements ErrorsRepositoryInterface
     protected function findErrorKey($identifier)
     {
         foreach ($this->errors as $key => $error) {
-            if ($error->getIdentifier() === $identifier) {
+            if ($error->getId() === $identifier) {
                 return $key;
             }
         }

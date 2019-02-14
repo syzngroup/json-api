@@ -12,7 +12,7 @@ interface ErrorInterface extends EncodableJsonApiStructureInterface
      *
      * @return mixed|null
      */
-    public function getIdentifier();
+    public function getId();
 
     /**
      * Retrieve links instance related to the error

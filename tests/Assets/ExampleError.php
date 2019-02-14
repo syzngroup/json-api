@@ -16,7 +16,7 @@ class ExampleError extends Error
      *
      * @return mixed
      */
-    public function getIdentifier()
+    public function getId()
     {
         return "1";
     }
