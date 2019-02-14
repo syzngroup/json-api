@@ -4,28 +4,28 @@ namespace Syzn\JsonApi\Contracts;
 
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
 use Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\BaseResourceInterface;
 
-interface ResourceInterface extends ResourceIdentifierInterface
+interface ResourceInterface extends BaseResourceInterface
 {
     /**
-     * Retrieve resource attributes
+     * Retrieve resource attributes.
      *
      * @return array
      */
     public function getAttributes(): array;
 
     /**
-     * Retrieve resource relationships
+     * Retrieve resource relationships.
      *
-     * @return Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface
+     * @return \Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface|null
      */
     public function getRelationships(): ?RelationshipsRepositoryInterface;
 
     /**
-     * Retrieve resource links
+     * Retrieve resource links.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinksInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinksInterface|null
      */
     public function getLinks(): ?LinksInterface;
 }
