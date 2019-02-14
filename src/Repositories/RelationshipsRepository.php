@@ -8,6 +8,7 @@ use Syzn\JsonApi\Contracts\ResourceInterface;
 
 class RelationshipsRepository implements RelationshipsRepositoryInterface
 {
+    // TODO add docblocks
 
     protected $relationships = [];
 
@@ -18,9 +19,9 @@ class RelationshipsRepository implements RelationshipsRepositoryInterface
 
     public function findByName(string $relation_name)
     {
-        return isset($this->relationships[$relation_name]) ?
-            $this->relationships[$relation_name] :
-            null;
+        return isset($this->relationships[$relation_name])
+            ? $this->relationships[$relation_name]
+            : null;
     }
 
     public function add(string $relation_name, RelationshipInterface $relationship)
@@ -32,5 +33,21 @@ class RelationshipsRepository implements RelationshipsRepositoryInterface
     public function delete(string $relation_name)
     {
         unset($this->relationships[$relation_name]);
+    }
+
+    /**
+     * Convert instance to json api encodable structure.
+     *
+     * @return array
+     */
+    public function toJsonApi(): array
+    {
+        $relationships = [];
+
+        foreach ($this->relationships as $relationship) {
+            $relationships[] = $relationship->toJsonApi();
+        }
+
+        return $relationships;
     }
 }
