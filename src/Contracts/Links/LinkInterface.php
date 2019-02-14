@@ -10,7 +10,7 @@ interface LinkInterface extends EncodableJsonApiStructureInterface
     /**
      * Retrieve link url
      *
-     * @return string
+     * @return string|null
      */
     public function getHref(): ?string;
 

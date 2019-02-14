@@ -13,7 +13,7 @@ class Link implements LinkInterface
     /**
      * Retrieve link url
      *
-     * @return string
+     * @return string|null
      */
     public function getHref(): ?string
     {
