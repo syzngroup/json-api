@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi\Repositories;
 
 use Syzn\JsonApi\Contracts\Repositories\ResourcesRepositoryInterface;
-use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceInterface;
 
 class ResourcesRepository implements ResourcesRepositoryInterface
 {
@@ -30,7 +30,7 @@ class ResourcesRepository implements ResourcesRepositoryInterface
             : null;
     }
 
-    public function add(ResourceIdentifierInterface $resource)
+    public function add(ResourceInterface $resource)
     {
         $this->resources[$resource->getType()][$resource->getIdentifier()] = $resource;
         return $this;
