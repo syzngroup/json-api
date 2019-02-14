@@ -53,8 +53,10 @@ class ResourcesRepository implements ResourcesRepositoryInterface
     {
         $resources = [];
 
-        foreach ($this->resources as $resource) {
-            $resources[] = $resource->toJsonApi();
+        foreach ($this->resources as $resources_by_type) {
+            foreach ($resources_by_type as $resource) {
+                $resources[] = $resource->toJsonApi();
+            }
         }
 
         return $resources;

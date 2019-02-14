@@ -53,8 +53,10 @@ class ResourceIdentifiersRepository implements ResourceIdentifiersRepositoryInte
     {
         $resource_identifiers = [];
 
-        foreach ($this->resource_identifiers as $resource_identifier) {
-            $resource_identifiers[] = $resource_identifier->toJsonApi();
+        foreach ($this->resource_identifiers as $resource_identifiers_by_type) {
+            foreach ($resource_identifiers_by_type as $resource_identifier) {
+                $resource_identifiers[] = $resource_identifier->toJsonApi();
+            }
         }
 
         return $resource_identifiers;
