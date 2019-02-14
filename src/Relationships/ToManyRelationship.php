@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Relationships;
 
-use Syzn\JsonApi\Contracts\Repositories\ResourcesRepositoryInterface;
+use Syzn\JsonApi\Contracts\Repositories\ResourceIdentifiersRepositoryInterface;
 use Syzn\JsonApi\Contracts\Relationships\ToManyRelationshipInterface;
 use Syzn\JsonApi\Relationships\Relationship;
 
@@ -10,16 +10,16 @@ class ToManyRelationship extends Relationship implements ToManyRelationshipInter
 {
     // TODO add dockblocks (copy from interface)
 
-    protected $resources;
+    protected $resource_identifiers;
 
-    public function getResources(): ?ResourcesRepositoryInterface
+    public function getData(): ?ResourceIdentifiersRepositoryInterface
     {
-        return $this->resources;
+        return $this->resource_identifiers;
     }
 
-    public function setResources(ResourcesRepositoryInterface $resources)
+    public function setData(ResourceIdentifiersRepositoryInterface $resource_identifiers)
     {
-        $this->resources = $resources;
+        $this->resource_identifiers = $resource_identifiers;
         return $this;
     }
 
@@ -32,12 +32,12 @@ class ToManyRelationship extends Relationship implements ToManyRelationshipInter
     {
         $relationship = parent::toJsonApi();
 
-        if ($resources = $this->getResources()) {
+        if ($resource_identifiers = $this->getData()) {
             $relationship['data'] = [];
 
-            foreach ($resources->all() as $type => $resources) {
-                foreach ($resources as $resource) {
-                    $relationship['data'][] = $resource->toJsonApi();
+            foreach ($resource_identifiers->all() as $type => $resource_identifiers) {
+                foreach ($resource_identifiers as $resource_identifier) {
+                    $relationship['data'][] = $resource_identifier->toJsonApi();
                 }
             }
         }
