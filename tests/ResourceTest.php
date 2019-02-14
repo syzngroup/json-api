@@ -75,10 +75,12 @@ final class ResourceTest extends TestCase
     {
         $related_data_sources = [
             new ExampleDataSource,
+            new ExampleDataSource,
         ];
 
         $related_resource_identifiers = (new ResourceIdentifiersRepository)
-            ->add(new ExampleCommentIdentifier($related_data_sources[0]));
+            ->add(new ExampleCommentIdentifier($related_data_sources[0]))
+            ->add(new ExampleCommentIdentifier($related_data_sources[1]));
 
         $relatioship = RelationshipsFactory::createToMany($related_resource_identifiers);
 
@@ -103,6 +105,10 @@ final class ResourceTest extends TestCase
                         [
                             'type' => 'comments',
                             'id' => $related_data_sources[0]->getId(),
+                        ],
+                        [
+                            'type' => 'comments',
+                            'id' => $related_data_sources[1]->getId(),
                         ],
                     ],
                 ],
