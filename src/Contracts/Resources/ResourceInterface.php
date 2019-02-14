@@ -1,6 +1,6 @@
 <?php
 
-namespace Syzn\JsonApi\Contracts;
+namespace Syzn\JsonApi\Contracts\Resources;
 
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
 use Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface;
