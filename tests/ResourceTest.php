@@ -3,8 +3,7 @@
 namespace Syzn\JsonApi\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Syzn\JsonApi\Relationships\ToOneRelationship;
-use Syzn\JsonApi\Relationships\ToManyRelationship;
+use Syzn\JsonApi\Factories\RelationshipsFactory;
 use Syzn\JsonApi\Repositories\RelationshipsRepository;
 use Syzn\JsonApi\Repositories\ResourceIdentifiersRepository;
 use Syzn\JsonApi\Tests\Assets\ExampleDataSource;
@@ -39,8 +38,7 @@ final class ResourceTest extends TestCase
         $related_data_source = new ExampleDataSource;
         $related_resource_identifier = new ExampleAuthorIdentifier($related_data_source);
 
-        $relatioship = (new ToOneRelationship)
-            ->setData($related_resource_identifier);
+        $relatioship = RelationshipsFactory::createToOne($related_resource_identifier);
 
         $relationships = (new RelationshipsRepository)
             ->add('author', $relatioship);
@@ -79,11 +77,10 @@ final class ResourceTest extends TestCase
             new ExampleDataSource,
         ];
 
-        $related_resources_identifiers = (new ResourceIdentifiersRepository)
+        $related_resource_identifiers = (new ResourceIdentifiersRepository)
             ->add(new ExampleCommentIdentifier($related_data_sources[0]));
 
-        $relatioship = (new ToManyRelationship)
-            ->setData($related_resources_identifiers);
+        $relatioship = RelationshipsFactory::createToMany($related_resource_identifiers);
 
         $relationships = (new RelationshipsRepository)
             ->add('comments', $relatioship);
