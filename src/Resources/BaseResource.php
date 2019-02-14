@@ -56,9 +56,9 @@ abstract class BaseResource implements BaseResourceInterface
      *
      * @param string $type
      *
-     * @return \Syzn\JsonApi\Contracts\Resources\BaseResourceInterface
+     * @return \Syzn\JsonApi\Resources\BaseResource
      */
-    public function setType(string $type): ResourceIdentifierInterface
+    public function setType(string $type): BaseResource
     {
         $this->type = $type;
         return $this;
@@ -79,9 +79,9 @@ abstract class BaseResource implements BaseResourceInterface
      *
      * @param string $id
      *
-     * @return \Syzn\JsonApi\Contracts\Resources\BaseResourceInterface
+     * @return \Syzn\JsonApi\Resources\BaseResource
      */
-    public function setId(string $id): BaseResourceInterface
+    public function setId(string $id): BaseResource
     {
         $this->id = $id;
         return $this;
@@ -102,9 +102,9 @@ abstract class BaseResource implements BaseResourceInterface
      *
      * @param \Syzn\JsonApi\Contracts\MetaInterface $meta
      *
-     * @return string
+     * @return \Syzn\JsonApi\Resources\BaseResource
      */
-    public function setMeta(MetaInterface $meta)
+    public function setMeta(MetaInterface $meta): BaseResource
     {
         $this->meta = $meta;
         return $this;
