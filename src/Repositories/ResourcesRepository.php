@@ -23,10 +23,10 @@ class ResourcesRepository implements ResourcesRepositoryInterface
             : null;
     }
 
-    public function findByIdentifier(string $type, $identifier)
+    public function findByTypeAndId(string $type, string $id)
     {
-        return isset($this->resources[$type][$identifier])
-            ? $this->resources[$type][$identifier]
+        return isset($this->resources[$type][$id])
+            ? $this->resources[$type][$id]
             : null;
     }
 
@@ -39,9 +39,9 @@ class ResourcesRepository implements ResourcesRepositoryInterface
         return $this;
     }
 
-    public function delete(string $type, $identifier)
+    public function delete(string $type, string $id)
     {
-        unset($this->resources[$type][$identifier]);
+        unset($this->resources[$type][$id]);
     }
 
     /**
