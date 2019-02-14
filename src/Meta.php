@@ -7,14 +7,14 @@ use Syzn\JsonApi\Contracts\MetaInterface;
 class Meta implements MetaInterface
 {
     /**
-     * Meta information store
+     * Meta information store.
      *
      * @var array
      */
     protected $items = [];
 
     /**
-     * Retrieve meta item by key
+     * Retrieve meta item by key.
      *
      * @param string $key
      *
@@ -28,14 +28,14 @@ class Meta implements MetaInterface
     }
 
     /**
-     * Add / update meta item
+     * Add / update meta item.
      *
      * @param string $key
      * @param string|array $value
      *
-     * @return Syzn\JsonApi\Meta
+     * @return \Syzn\JsonApi\Meta
      */
-    public function set(string $key, $value)
+    public function set(string $key, $value): Meta
     {
         $this->items[$key] = $value;
         return $this;
