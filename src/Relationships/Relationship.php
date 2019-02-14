@@ -22,6 +22,7 @@ abstract class Relationship implements RelationshipInterface
     public function setLinks(LinksInterface $links)
     {
         $this->links = $links;
+        return $this;
     }
 
     public function getLinks(): ?LinksInterface
@@ -32,6 +33,7 @@ abstract class Relationship implements RelationshipInterface
     public function setMeta(MetaInterface $meta)
     {
         $this->meta = $meta;
+        return $this;
     }
 
     /**
