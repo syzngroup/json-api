@@ -38,7 +38,7 @@ abstract class BaseResource implements BaseResourceInterface
      */
     public function __construct(DataSourceInterface $data_source)
     {
-        $this->setId($data_source->getIdentifier());
+        $this->setId($data_source->getId());
     }
 
     /**

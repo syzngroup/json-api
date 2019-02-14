@@ -22,7 +22,7 @@ final class ResourceTest extends TestCase
 
         $expected_jsonapi_rendered_resource = [
             'type' => 'articles',
-            'id' => $data_source->getIdentifier(),
+            'id' => $data_source->getId(),
             'attributes' => [
                 'title' => "Rails is Omakase",
             ],
@@ -53,7 +53,7 @@ final class ResourceTest extends TestCase
 
         $expected_jsonapi_rendered_resource = [
             'type' => 'articles',
-            'id' => $primary_data_source->getIdentifier(),
+            'id' => $primary_data_source->getId(),
             'attributes' => [
                 'title' => "Rails is Omakase",
             ],
@@ -61,7 +61,7 @@ final class ResourceTest extends TestCase
                 'author' => [
                     'data' => [
                         'type' => 'people',
-                        'id' => $related_data_source->getIdentifier(),
+                        'id' => $related_data_source->getId(),
                     ],
                 ],
             ],
@@ -96,7 +96,7 @@ final class ResourceTest extends TestCase
 
         $expected_jsonapi_rendered_resource = [
             'type' => 'articles',
-            'id' => $primary_data_source->getIdentifier(),
+            'id' => $primary_data_source->getId(),
             'attributes' => [
                 'title' => "Rails is Omakase",
             ],
@@ -105,7 +105,7 @@ final class ResourceTest extends TestCase
                     'data' => [
                         [
                             'type' => 'comments',
-                            'id' => $related_data_sources[0]->getIdentifier(),
+                            'id' => $related_data_sources[0]->getId(),
                         ],
                     ],
                 ],

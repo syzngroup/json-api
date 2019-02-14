@@ -18,7 +18,7 @@ class ExampleDataSource implements DataSourceInterface
      *
      * @return string
      */
-    public function getIdentifier()
+    public function getId()
     {
         return $this->id;
     }

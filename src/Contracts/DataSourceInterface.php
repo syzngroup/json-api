@@ -9,5 +9,5 @@ interface DataSourceInterface
      *
      * @return string
      */
-    public function getIdentifier();
+    public function getId();
 }
