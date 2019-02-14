@@ -20,6 +20,7 @@ class ToOneRelationship extends Relationship implements ToOneRelationshipInterfa
     public function setResource(ResourceIdentifierInterface $resource_identifier)
     {
         $this->resource_identifier = $resource_identifier;
+        return $this;
     }
 
     /**

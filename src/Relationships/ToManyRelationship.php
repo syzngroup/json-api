@@ -20,6 +20,7 @@ class ToManyRelationship extends Relationship implements ToManyRelationshipInter
     public function setResources(ResourcesRepositoryInterface $resources)
     {
         $this->resources = $resources;
+        return $this;
     }
 
     /**
