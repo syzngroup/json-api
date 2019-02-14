@@ -89,7 +89,7 @@ abstract class Resource extends BaseResource implements ResourceInterface
      *
      * @return \Syzn\JsonApi\Resources\Resource
      */
-    public function setLinks(LinksInterface $links)
+    public function setLinks(LinksInterface $links): Resource
     {
         $this->links = $links;
         return $this;
