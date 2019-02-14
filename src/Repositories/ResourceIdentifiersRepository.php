@@ -23,25 +23,25 @@ class ResourceIdentifiersRepository implements ResourceIdentifiersRepositoryInte
             : null;
     }
 
-    public function findByIdentifier(string $type, $identifier)
+    public function findByTypeAndId(string $type, string $id)
     {
-        return isset($this->resource_identifiers[$type][$identifier])
-            ? $this->resource_identifiers[$type][$identifier]
+        return isset($this->resource_identifiers[$type][$id])
+            ? $this->resource_identifiers[$type][$id]
             : null;
     }
 
     public function add(ResourceIdentifierInterface $resource_identifier)
     {
         $type = $resource_identifier->getType();
-        $identifier = $resource_identifier->getId();
+        $id = $resource_identifier->getId();
 
-        $this->resource_identifiers[$type][$identifier] = $resource_identifier;
+        $this->resource_identifiers[$type][$id] = $resource_identifier;
         return $this;
     }
 
-    public function delete(string $type, $identifier)
+    public function delete(string $type, string $id)
     {
-        unset($this->resources[$type][$identifier]);
+        unset($this->resources[$type][$id]);
     }
 
     /**
