@@ -2,10 +2,17 @@
 
 namespace Syzn\JsonApi\Tests\Assets;
 
-use Syzn\JsonApi\Contracts\DataResourceInterface;
+use Syzn\JsonApi\Contracts\DataSourceInterface;
 
-class ExampleDataSource implements DataResourceInterface
+class ExampleDataSource implements DataSourceInterface
 {
+    private $id;
+
+    public function __construct()
+    {
+        $this->id = (string) rand(1, 1000);
+    }
+
     /**
      * Retrieve source identifier
      *
@@ -13,6 +20,6 @@ class ExampleDataSource implements DataResourceInterface
      */
     public function getIdentifier()
     {
-        return rand(1, 1000);
+        return $this->id;
     }
 }
