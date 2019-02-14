@@ -24,7 +24,7 @@ interface BaseResourceInterface extends DataInterface
     /**
      * Retrieve resource meta.
      *
-     * @return string
+     * @return \Syzn\JsonApi\Contracts\MetaInterface|null
      */
     public function getMeta(): ?MetaInterface;
 
@@ -32,8 +32,6 @@ interface BaseResourceInterface extends DataInterface
      * Set resource meta.
      *
      * @param \Syzn\JsonApi\Contracts\MetaInterface $meta
-     *
-     * @return string
      */
     public function setMeta(MetaInterface $meta);
 }
