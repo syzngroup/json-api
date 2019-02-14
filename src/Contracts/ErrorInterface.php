@@ -10,14 +10,14 @@ interface ErrorInterface extends EncodableJsonApiStructureInterface
     /**
      * Retrieve unique error identifier
      *
-     * @return mixed
+     * @return mixed|null
      */
     public function getIdentifier();
 
     /**
      * Retrieve links instance related to the error
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinksInterface
+     * @return Syzn\JsonApi\Contracts\Links\LinksInterface|null
      */
     public function getLinks(): ?LinksInterface;
 
