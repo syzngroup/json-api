@@ -18,40 +18,42 @@ class ResourcesRepository implements ResourcesRepositoryInterface
 
     public function findByType(string $type): array
     {
-        return !empty($this->resources[$type]) ? $this->resources[$type] : null;
+        return !empty($this->resources[$type])
+            ? $this->resources[$type]
+            : null;
     }
 
     public function findByIdentifier(string $type, $identifier)
     {
-        if ($key = $this->findResourceKey($type, $identifier)) {
-            return $this->resources[$type][$identifier];
-        }
+        return isset($this->resources[$type][$identifier])
+            ? $this->resources[$type][$identifier]
+            : null;
     }
 
     public function add(ResourceIdentifierInterface $resource)
     {
-        $type = $resource->getType();
-
-        $this->resources[$type][] = $resource;
+        $this->resources[$resource->getType()][$resource->getIdentifier()] = $resource;
+        return $this;
     }
 
     public function delete(string $type, $identifier)
     {
-        if ($key = $this->findResourceKey($type, $identifier)) {
-            unset($this->resources[$type][$key]);
-        }
+        unset($this->resources[$type][$identifier]);
     }
 
-    protected function findResourceKey(string $type, $identifier)
+    /**
+     * Convert instance to json api encodable structure.
+     *
+     * @return array
+     */
+    public function toJsonApi(): array
     {
-        if (!empty($this->resources[$type])) {
-            foreach ($this->resources[$type] as $key => $resource) {
-                if ($resource->getIdentifier() === $identifier) {
-                    return $key;
-                }
-            }
+        $resources = [];
+
+        foreach ($this->resources as $resource) {
+            $resources[] = $resource->toJsonApi();
         }
 
-        return null;
+        return $resources;
     }
 }
