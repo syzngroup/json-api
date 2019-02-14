@@ -33,7 +33,7 @@ class ResourceIdentifiersRepository implements ResourceIdentifiersRepositoryInte
     public function add(ResourceIdentifierInterface $resource_identifier)
     {
         $type = $resource_identifier->getType();
-        $identifier = $resource_identifier->getIdentifier();
+        $identifier = $resource_identifier->getId();
 
         $this->resource_identifiers[$type][$identifier] = $resource_identifier;
         return $this;

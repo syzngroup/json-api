@@ -19,7 +19,7 @@ interface BaseResourceInterface extends DataInterface
      *
      * @return string
      */
-    public function getIdentifier(): string;
+    public function getId(): string;
 
     /**
      * Retrieve resource meta.

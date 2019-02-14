@@ -32,7 +32,10 @@ class ResourcesRepository implements ResourcesRepositoryInterface
 
     public function add(ResourceInterface $resource)
     {
-        $this->resources[$resource->getType()][$resource->getIdentifier()] = $resource;
+        $type = $resource->getType();
+        $id = $resource->getId();
+
+        $this->resources[$type][$id] = $resource;
         return $this;
     }
 

@@ -69,7 +69,7 @@ abstract class BaseResource implements BaseResourceInterface
      *
      * @return string
      */
-    public function getIdentifier(): string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -119,7 +119,7 @@ abstract class BaseResource implements BaseResourceInterface
     {
         return [
             'type' => $this->getType(),
-            'id' => $this->getIdentifier(),
+            'id' => $this->getId(),
         ];
     }
 }
