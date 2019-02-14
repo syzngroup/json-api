@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi\Repositories;
 
 use Syzn\JsonApi\Contracts\Repositories\ResourcesRepositoryInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 class ResourcesRepository implements ResourcesRepositoryInterface
 {

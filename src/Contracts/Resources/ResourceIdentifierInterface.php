@@ -1,6 +1,6 @@
 <?php
 
-namespace Syzn\JsonApi\Contracts;
+namespace Syzn\JsonApi\Contracts\Resources;
 
 use Syzn\JsonApi\Contracts\Resources\BaseResourceInterface;
 

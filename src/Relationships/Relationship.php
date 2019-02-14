@@ -3,9 +3,9 @@
 namespace Syzn\JsonApi\Relationships;
 
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
 use Syzn\JsonApi\Contracts\Relationships\RelationshipInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 abstract class Relationship implements RelationshipInterface
 {

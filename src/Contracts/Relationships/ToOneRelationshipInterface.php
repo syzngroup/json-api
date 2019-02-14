@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi\Contracts\Relationships;
 
 use Syzn\JsonApi\Contracts\Relationships\RelationshipInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 interface ToOneRelationshipInterface extends RelationshipInterface
 {

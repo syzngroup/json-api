@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts\Repositories;
 
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 interface ResourcesRepositoryInterface
 {

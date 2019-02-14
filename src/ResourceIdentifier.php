@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi;
 
 use Syzn\JsonApi\Contracts\DataSourceInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 class ResourceIdentifier implements ResourceIdentifierInterface
 {
@@ -46,7 +46,7 @@ class ResourceIdentifier implements ResourceIdentifierInterface
      *
      * @param string $type
      *
-     * @return Syzn\JsonApi\Contracts\ResourceIdentifierInterface
+     * @return Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface
      */
     public function setType(string $type): ResourceIdentifierInterface
     {
@@ -69,7 +69,7 @@ class ResourceIdentifier implements ResourceIdentifierInterface
      *
      * @param string $id
      *
-     * @return Syzn\JsonApi\Contracts\ResourceIdentifierInterface
+     * @return Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface
      */
     public function setIdentifier(string $id): ResourceIdentifierInterface
     {

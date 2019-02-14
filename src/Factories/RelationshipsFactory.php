@@ -4,7 +4,7 @@ namespace Syzn\JsonApi\Factories;
 
 use Syzn\JsonApi\Contracts\Repositories\ResourcesRepositoryInterface;
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
 use Syzn\JsonApi\Relationships\ToOneRelationship;
 use Syzn\JsonApi\Relationships\ToManyRelationship;

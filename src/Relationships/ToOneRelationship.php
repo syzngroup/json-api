@@ -2,8 +2,8 @@
 
 namespace Syzn\JsonApi\Relationships;
 
-use Syzn\JsonApi\Contracts\ResourceIdentifierInterface;
 use Syzn\JsonApi\Contracts\Relationships\ToOneRelationshipInterface;
+use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 use Syzn\JsonApi\Relationships\Relationship;
 
 class ToOneRelationship extends Relationship implements ToOneRelationshipInterface
