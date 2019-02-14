@@ -9,16 +9,16 @@ use Syzn\JsonApi\Contracts\Links\PaginationLinksInterface;
 interface LinksInterface extends EncodableJsonApiStructureInterface
 {
     /**
-     * Retrieve self link
+     * Retrieve self link.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
-    public function getSelf(): LinkInterface;
+    public function getSelf(): ?LinkInterface;
 
     /**
-     * Retrieve related link
+     * Retrieve related link.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
     public function getRelated(): ?LinkInterface;
 }

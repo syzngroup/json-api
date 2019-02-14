@@ -13,13 +13,13 @@ class Links implements LinksInterface
     protected $pagination_links;
 
     /**
-     * Retrieve self link
+     * Retrieve self link.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
-    public function getSelf(): LinkInterface
+    public function getSelf(): ?LinkInterface
     {
-        return  $this->self;
+        return $this->self;
     }
 
     public function setSelf(LinkInterface $link): Links
@@ -29,9 +29,9 @@ class Links implements LinksInterface
     }
 
     /**
-     * Retrieve related link
+     * Retrieve related link.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
     public function getRelated(): ?LinkInterface
     {
