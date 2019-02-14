@@ -12,12 +12,12 @@ class ToOneRelationship extends Relationship implements ToOneRelationshipInterfa
 
     protected $resource_identifier;
 
-    public function getResource(): ?ResourceIdentifierInterface
+    public function getData(): ?ResourceIdentifierInterface
     {
         return $this->resource_identifier;
     }
 
-    public function setResource(ResourceIdentifierInterface $resource_identifier)
+    public function setData(ResourceIdentifierInterface $resource_identifier)
     {
         $this->resource_identifier = $resource_identifier;
         return $this;
@@ -32,7 +32,7 @@ class ToOneRelationship extends Relationship implements ToOneRelationshipInterfa
     {
         $relationship = parent::toJsonApi();
 
-        if ($resource_identifier = $this->getResource()) {
+        if ($resource_identifier = $this->getData()) {
             $relationship['data'] = $resource_identifier->toJsonApi();
         }
 
