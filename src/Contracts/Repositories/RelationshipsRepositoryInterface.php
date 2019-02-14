@@ -2,9 +2,10 @@
 
 namespace Syzn\JsonApi\Contracts\Repositories;
 
+use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 use Syzn\JsonApi\Contracts\Relationships\RelationshipInterface;
 
-interface RelationshipsRepositoryInterface
+interface RelationshipsRepositoryInterface extends EncodableJsonApiStructureInterface
 {
     public function all(): array;
     public function findByName(string $relation_name);
