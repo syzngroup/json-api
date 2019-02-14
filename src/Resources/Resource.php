@@ -1,28 +1,49 @@
 <?php
 
-namespace Syzn\JsonApi;
+namespace Syzn\JsonApi\Resources;
 
 use Syzn\JsonApi\Contracts\DataSourceInterface;
-use Syzn\JsonApi\Contracts\ResourceInterface;
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
 use Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface;
-
+use Syzn\JsonApi\Contracts\Resources\ResourceInterface;
 use Syzn\JsonApi\Factories\LinkFactory;
 use Syzn\JsonApi\Factories\LinksFactory;
+use Syzn\JsonApi\Resources\BaseResource;
 
-use Syzn\JsonApi\ResourceIdentifier;
-
-abstract class Resource extends ResourceIdentifier implements ResourceInterface
+abstract class Resource extends BaseResource implements ResourceInterface
 {
-
+    /**
+     * Resource data source.
+     *
+     * @var \Syzn\JsonApi\Contracts\DataSourceInterface
+     */
     protected $data_source;
 
+    /**
+     * Resource attributes.
+     *
+     * @var array
+     */
     protected $attributes = [];
+
+    /**
+     * Resource relationships.
+     *
+     * @var \Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface
+     */
     protected $relationships;
+
+    /**
+     * Resource links.
+     *
+     * @var \Syzn\JsonApi\Contracts\Links\LinksInterface
+     */
     protected $links;
 
     /**
-     * @param mixed $data_source
+     * Initialize resource.
+     *
+     * @param \Syzn\JsonApi\Contracts\DataSourceInterface $data_source
      *
      * @return void
      */
@@ -35,16 +56,16 @@ abstract class Resource extends ResourceIdentifier implements ResourceInterface
     }
 
     /**
-     * Retrieve resource attributes
+     * Retrieve resource attributes.
      *
      * @return array
      */
     abstract public function getAttributes(): array;
 
     /**
-     * Retrieve resource relationships
+     * Retrieve resource relationships.
      *
-     * @return Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface
+     * @return \Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface|null
      */
     public function getRelationships(): ?RelationshipsRepositoryInterface
     {
@@ -52,28 +73,35 @@ abstract class Resource extends ResourceIdentifier implements ResourceInterface
     }
 
     /**
-     * Retrieve resource links
+     * Retrieve resource links.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinksInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinksInterface|null
      */
     public function getLinks(): ?LinksInterface
     {
         return $this->links;
     }
 
+    /**
+     * Set resource links.
+     *
+     * @param \Syzn\JsonApi\Contracts\Links\LinksInterface
+     *
+     * @return \Syzn\JsonApi\Resources\Resource
+     */
     public function setLinks(LinksInterface $links)
     {
         $this->links = $links;
+        return $this;
     }
 
     /**
-     * Convert instance to json api encodable structure
+     * Convert instance to json api encodable structure.
      *
      * @return array
      */
     public function toJsonApi(): array
     {
-
         $resource = parent::toJsonApi();
 
         $resource['attributes'] = $this->getAttributes();
@@ -82,7 +110,7 @@ abstract class Resource extends ResourceIdentifier implements ResourceInterface
             $resource['links'] = $links->toJsonApi();
         }
 
-        if (($relationships = $this->getRelationships()->all()) && !empty($relationships)) {
+        if (($relationships = $this->getRelationships()) && !empty($relationships = $relationships->all())) {
             $resource['relationships'] = [];
 
             foreach ($relationships as $name => $relationship) {
