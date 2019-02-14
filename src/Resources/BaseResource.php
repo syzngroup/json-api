@@ -38,7 +38,7 @@ abstract class BaseResource implements BaseResourceInterface
      */
     public function __construct(DataSourceInterface $data_source)
     {
-        $this->setIdentifier($data_source->getIdentifier());
+        $this->setId($data_source->getIdentifier());
     }
 
     /**
@@ -81,7 +81,7 @@ abstract class BaseResource implements BaseResourceInterface
      *
      * @return \Syzn\JsonApi\Contracts\Resources\BaseResourceInterface
      */
-    public function setIdentifier(string $id): BaseResourceInterface
+    public function setId(string $id): BaseResourceInterface
     {
         $this->id = $id;
         return $this;
