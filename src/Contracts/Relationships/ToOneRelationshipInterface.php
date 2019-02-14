@@ -7,5 +7,5 @@ use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
 interface ToOneRelationshipInterface extends RelationshipInterface
 {
-    public function getResource(): ?ResourceIdentifierInterface;
+    public function getData(): ?ResourceIdentifierInterface;
 }
