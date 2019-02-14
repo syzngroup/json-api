@@ -17,7 +17,7 @@ class ToManyRelationship extends Relationship implements ToManyRelationshipInter
         return $this->resource_identifiers;
     }
 
-    public function setData(ResourceIdentifiersRepositoryInterface $resource_identifiers)
+    public function setData(ResourceIdentifiersRepositoryInterface $resource_identifiers): ToManyRelationship
     {
         $this->resource_identifiers = $resource_identifiers;
         return $this;
