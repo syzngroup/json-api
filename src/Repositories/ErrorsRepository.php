@@ -16,40 +16,10 @@ class ErrorsRepository implements ErrorsRepositoryInterface
         return $this->errors;
     }
 
-    // TODO: Does findByIdentifier needed? An error doesn't necessarily has an identifier
-    public function findByIdentifier($identifier)
-    {
-        if ($key = $this->findErrorKey($identifier)) {
-            $error = $this->errors[$key];
-        } else {
-            $error = null;
-        }
-
-        return $error;
-    }
-
     public function add(ErrorInterface $error)
     {
         $this->errors[] = $error;
         return $this;
-    }
-
-    public function delete($identifier)
-    {
-        if ($key = $this->findErrorKey($identifier)) {
-            unset($this->errors[$key]);
-        }
-    }
-
-    protected function findErrorKey($identifier)
-    {
-        foreach ($this->errors as $key => $error) {
-            if ($error->getId() === $identifier) {
-                return $key;
-            }
-        }
-
-        return null;
     }
 
     /**
