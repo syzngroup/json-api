@@ -7,6 +7,8 @@ use Syzn\JsonApi\JsonApi;
 use Syzn\JsonApi\Meta;
 use Syzn\JsonApi\Document\Builder as DocumentBuilder;
 use Syzn\JsonApi\Factories\RelationshipsFactory;
+use Syzn\JsonApi\Factories\Links\LinkFactory;
+use Syzn\JsonApi\Links\Links;
 use Syzn\JsonApi\Repositories\ErrorsRepository;
 use Syzn\JsonApi\Repositories\ResourcesRepository;
 use Syzn\JsonApi\Repositories\ResourceIdentifiersRepository;
@@ -93,6 +95,33 @@ final class DocumentTest extends TestCase
         $expected_jsonapi_rendered_document = [
             'data' => $resource->toJsonApi(),
             'jsonapi' => $json_api->toJsonApi(),
+        ];
+
+        $this->assertEquals(
+            $document->toJsonApi(),
+            $expected_jsonapi_rendered_document
+        );
+    }
+
+    public function testDocumentWithDataAndLinksRendersToJsonApi()
+    {
+        $resource = new ExampleArticle(new ExampleDataSource);
+
+        $self = LinkFactory::create(
+            "/articles"
+        );
+
+        $links = (new Links)
+            ->setSelf($self);
+
+        $document = (new DocumentBuilder)
+            ->data($resource)
+            ->links($links)
+            ->get();
+
+        $expected_jsonapi_rendered_document = [
+            'data' => $resource->toJsonApi(),
+            'links' => $links->toJsonApi(),
         ];
 
         $this->assertEquals(

@@ -3,7 +3,6 @@
 namespace Syzn\JsonApi\Tests;
 
 use PHPUnit\Framework\TestCase;
-
 use Syzn\JsonApi\Links\Links;
 use Syzn\JsonApi\Factories\Links\LinkFactory;
 
