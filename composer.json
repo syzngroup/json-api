@@ -1,6 +1,7 @@
 {
     "name": "syzngroup/json-api",
     "type": "library",
+    "version": "0.0.1-alpha",
     "authors": [
         {
             "name": "Yonatan Naxon",
