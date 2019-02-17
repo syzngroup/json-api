@@ -29,6 +29,34 @@ final class ResourcesRepositoryTest extends TestCase
         );
     }
 
+    public function testaddManyResources()
+    {
+        $data_sources = [
+             new ExampleDataSource,
+             new ExampleDataSource,
+        ];
+
+        $resources = [
+            new ExampleArticle($data_sources[0]),
+            new ExampleArticle($data_sources[1]),
+        ];
+
+        $repository = (new ResourcesRepository)->addMany([
+            $resources[0],
+            $resources[1]
+        ]);
+
+        $this->assertEquals(
+            $repository->all(),
+            [
+                'articles' => [
+                    $data_sources[0]->getId() => $resources[0],
+                    $data_sources[1]->getId() => $resources[1],
+                ],
+            ]
+        );
+    }
+
     public function testDeleteResource()
     {
         $data_sources = [
@@ -42,8 +70,10 @@ final class ResourcesRepositoryTest extends TestCase
         ];
 
         $repository = (new ResourcesRepository)
-            ->add($resources[0])
-            ->add($resources[1])
+            ->addMany([
+                $resources[0],
+                $resources[1],
+            ])
             ->delete($resources[0]->getType(), $data_sources[0]->getId());
 
         $this->assertEquals(
@@ -71,10 +101,11 @@ final class ResourcesRepositoryTest extends TestCase
             new ExampleAuthor($data_sources[2]),
         ];
 
-        $repository = (new ResourcesRepository)
-            ->add($resources[0])
-            ->add($resources[1])
-            ->add($resources[2]);
+        $repository = (new ResourcesRepository)->addMany([
+            $resources[0],
+            $resources[1],
+            $resources[2],
+        ]);
 
         $this->assertEquals(
             $repository->findByType($resources[0]->getType()),
@@ -106,10 +137,11 @@ final class ResourcesRepositoryTest extends TestCase
             new ExampleAuthor($data_sources[2]),
         ];
 
-        $repository = (new ResourcesRepository)
-            ->add($resources[0])
-            ->add($resources[1])
-            ->add($resources[2]);
+        $repository = (new ResourcesRepository)->addMany([
+            $resources[0],
+            $resources[1],
+            $resources[2],
+        ]);
 
         $this->assertEquals(
             $repository->findByTypeAndId($resources[0]->getType(), $data_sources[0]->getId()),

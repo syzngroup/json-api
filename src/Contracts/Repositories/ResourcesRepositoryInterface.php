@@ -11,5 +11,6 @@ interface ResourcesRepositoryInterface extends DataInterface
     public function findByType(string $type): array;
     public function findByTypeAndId(string $type, string $id);
     public function add(ResourceInterface $resource);
+    public function addMany(array $resources);
     public function delete(string $type, string $id);
 }

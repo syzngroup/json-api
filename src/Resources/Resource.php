@@ -44,6 +44,7 @@ abstract class Resource extends BaseResource implements ResourceInterface
      * Initialize resource.
      *
      * @param \Syzn\JsonApi\Contracts\DataSourceInterface $data_source
+     * @param \Syzn\JsonApi\Contracts\Repositories\RelationshipsRepositoryInterface $relationships
      *
      * @return void
      */

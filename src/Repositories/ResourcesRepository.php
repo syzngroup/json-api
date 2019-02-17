@@ -39,6 +39,22 @@ class ResourcesRepository implements ResourcesRepositoryInterface
         return $this;
     }
 
+    public function addMany(array $resources)
+    {
+        foreach ($resources as $resource) {
+            if (! $resource instanceof ResourceInterface) {
+                // TODO: Throw exception...
+            }
+
+            $type = $resource->getType();
+            $id = $resource->getId();
+
+            $this->resources[$type][$id] = $resource;
+        }
+
+        return $this;
+    }
+
     public function delete(string $type, string $id)
     {
         unset($this->resources[$type][$id]);
