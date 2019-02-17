@@ -41,7 +41,7 @@ class ResourceIdentifiersRepository implements ResourceIdentifiersRepositoryInte
 
     public function delete(string $type, string $id)
     {
-        unset($this->resources[$type][$id]);
+        unset($this->resource_identifiers[$type][$id]);
     }
 
     /**
