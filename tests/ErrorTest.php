@@ -3,7 +3,6 @@
 namespace Syzn\JsonApi\Tests;
 
 use PHPUnit\Framework\TestCase;
-
 use Syzn\JsonApi\Tests\Assets\ExampleError;
 
 final class ErrorTest extends TestCase

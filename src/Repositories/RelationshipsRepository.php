@@ -33,6 +33,7 @@ class RelationshipsRepository implements RelationshipsRepositoryInterface
     public function delete(string $relation_name)
     {
         unset($this->relationships[$relation_name]);
+        return $this;
     }
 
     /**

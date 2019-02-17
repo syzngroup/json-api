@@ -42,6 +42,7 @@ class ResourcesRepository implements ResourcesRepositoryInterface
     public function delete(string $type, string $id)
     {
         unset($this->resources[$type][$id]);
+        return $this;
     }
 
     /**
