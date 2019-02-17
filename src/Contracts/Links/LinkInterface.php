@@ -8,16 +8,16 @@ use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 interface LinkInterface extends EncodableJsonApiStructureInterface
 {
     /**
-     * Retrieve link url
+     * Retrieve link url.
      *
      * @return string|null
      */
     public function getHref(): ?string;
 
     /**
-     * Retrieve link meta information
+     * Retrieve link meta information.
      *
-     * @return Syzn\JsonApi\Contracts\MetaInterface|null
+     * @return \Syzn\JsonApi\Contracts\MetaInterface|null
      */
     public function getMeta(): ?MetaInterface;
 }

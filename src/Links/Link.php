@@ -11,7 +11,7 @@ class Link implements LinkInterface
     protected $meta;
 
     /**
-     * Retrieve link url
+     * Retrieve link url.
      *
      * @return string|null
      */
@@ -27,9 +27,9 @@ class Link implements LinkInterface
     }
 
     /**
-     * Retrieve link meta information
+     * Retrieve link meta information.
      *
-     * @return Syzn\JsonApi\Contracts\MetaInterface|null
+     * @return \Syzn\JsonApi\Contracts\MetaInterface|null
      */
     public function getMeta(): ?MetaInterface
     {
@@ -43,7 +43,7 @@ class Link implements LinkInterface
     }
 
     /**
-     * Convert instance to json api encodable structure
+     * Convert instance to json api encodable structure.
      *
      * @return string
      */
@@ -62,9 +62,8 @@ class Link implements LinkInterface
             $link['href'] = $href;
         }
 
-        if ($meta = $this->getMeta()) {
-            $link['meta'] = $this->getMeta()
-                    ->toJsonApi();
+        if ($meta) {
+            $link['meta'] = $meta->toJsonApi();
         }
 
         return $link;

@@ -8,7 +8,6 @@ use Syzn\JsonApi\Links\Links;
 
 class PaginationLinks extends Links implements PaginationLinksInterface
 {
-
     const FIRST_KEYWORD = "first";
     const LAST_KEYWORD = "last";
     const PREV_KEYWORD = "prev";
@@ -20,9 +19,9 @@ class PaginationLinks extends Links implements PaginationLinksInterface
     protected $next;
 
     /**
-     * Retrieve first page url
+     * Retrieve first page url.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface
      */
     public function getFirst(): LinkInterface
     {
@@ -36,9 +35,9 @@ class PaginationLinks extends Links implements PaginationLinksInterface
     }
 
     /**
-     * Retrieve last page url
+     * Retrieve last page url.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface
      */
     public function getLast(): ?LinkInterface
     {
@@ -52,9 +51,9 @@ class PaginationLinks extends Links implements PaginationLinksInterface
     }
 
     /**
-     * Retrieve previous page url
+     * Retrieve previous page url.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface|null
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
     public function getPrev(): ?LinkInterface
     {
@@ -68,9 +67,9 @@ class PaginationLinks extends Links implements PaginationLinksInterface
     }
 
     /**
-     * Retrieve next page url
+     * Retrieve next page url.
      *
-     * @return Syzn\JsonApi\Contracts\Links\LinkInterface|null
+     * @return \Syzn\JsonApi\Contracts\Links\LinkInterface|null
      */
     public function getNext(): ?LinkInterface
     {
@@ -84,7 +83,7 @@ class PaginationLinks extends Links implements PaginationLinksInterface
     }
 
     /**
-     * Convert instance to json api encodable structure
+     * Convert instance to json api encodable structure.
      *
      * @return array
      */

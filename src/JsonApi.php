@@ -11,7 +11,7 @@ class JsonApi implements JsonApiInterface
     protected $meta;
 
     /**
-     * Initialize JsonApi instance
+     * Initialize JsonApi instance.
      *
      * @return void
      */
@@ -22,7 +22,7 @@ class JsonApi implements JsonApiInterface
     }
 
     /**
-     * Retrieve json api version
+     * Retrieve json api version.
      *
      * @return string|null
      */
@@ -32,9 +32,9 @@ class JsonApi implements JsonApiInterface
     }
 
     /**
-     * Retrieve json api version meta
+     * Retrieve json api version meta.
      *
-     * @return Syzn\JsonApi\Contracts\MetaInterface|null
+     * @return \Syzn\JsonApi\Contracts\MetaInterface|null
      */
     public function getMeta(): ?MetaInterface
     {
@@ -42,7 +42,7 @@ class JsonApi implements JsonApiInterface
     }
 
     /**
-     * Convert instance to json api encodable structure
+     * Convert instance to json api encodable structure.
      *
      * @return array
      */
