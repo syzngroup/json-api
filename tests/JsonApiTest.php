@@ -3,9 +3,8 @@
 namespace Syzn\JsonApi\Tests;
 
 use PHPUnit\Framework\TestCase;
-
-use Syzn\JsonApi\Meta;
 use Syzn\JsonApi\JsonApi;
+use Syzn\JsonApi\Meta;
 
 final class JsonApiTest extends TestCase
 {

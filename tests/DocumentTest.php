@@ -3,6 +3,7 @@
 namespace Syzn\JsonApi\Tests;
 
 use PHPUnit\Framework\TestCase;
+use Syzn\JsonApi\JsonApi;
 use Syzn\JsonApi\Meta;
 use Syzn\JsonApi\Document\Builder as DocumentBuilder;
 use Syzn\JsonApi\Factories\RelationshipsFactory;
@@ -70,6 +71,28 @@ final class DocumentTest extends TestCase
         $expected_jsonapi_rendered_document = [
             'data' => $resource->toJsonApi(),
             'meta' => $meta->toJsonApi(),
+        ];
+
+        $this->assertEquals(
+            $document->toJsonApi(),
+            $expected_jsonapi_rendered_document
+        );
+    }
+
+    public function testDocumentWithDataAndJsonApiRendersToJsonApi()
+    {
+        $resource = new ExampleArticle(new ExampleDataSource);
+
+        $json_api = new JsonApi("1.0.0");
+
+        $document = (new DocumentBuilder)
+            ->data($resource)
+            ->jsonapi($json_api)
+            ->get();
+
+        $expected_jsonapi_rendered_document = [
+            'data' => $resource->toJsonApi(),
+            'jsonapi' => $json_api->toJsonApi(),
         ];
 
         $this->assertEquals(
