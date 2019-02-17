@@ -6,6 +6,10 @@
         {
             "name": "Yonatan Naxon",
             "email": "yonatan@syzn.co.il"
+        },
+        {
+            "name": "Arad Zaltsberger",
+            "email": "arad@syzn.co.il"
         }
     ],
     "require": {
