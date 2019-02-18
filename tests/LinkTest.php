@@ -9,10 +9,8 @@ use Syzn\JsonApi\Meta;
 
 final class LinkTest extends TestCase
 {
-
     public function testGetAndSetHref()
     {
-
         $example_url = "http://example.com";
 
         $link = (new Link)
