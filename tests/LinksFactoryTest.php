@@ -5,7 +5,6 @@ namespace Syzn\JsonApi\Tests;
 use PHPUnit\Framework\TestCase;
 use Syzn\JsonApi\Factories\Links\LinkFactory;
 use Syzn\JsonApi\Factories\Links\LinksFactory;
-use Syzn\JsonApi\Links\Link;
 
 final class LinksFactoryTest extends TestCase
 {
