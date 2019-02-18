@@ -2,10 +2,10 @@
 
 namespace Syzn\JsonApi\Contracts\Repositories;
 
-use Syzn\JsonApi\Contracts\DataInterface;
+use Syzn\JsonApi\Contracts\Document\PrimaryDataInterface;
 use Syzn\JsonApi\Contracts\Resources\ResourceIdentifierInterface;
 
-interface ResourceIdentifiersRepositoryInterface extends DataInterface
+interface ResourceIdentifiersRepositoryInterface extends PrimaryDataInterface
 {
     public function all(): array;
     public function findByType(string $type): array;

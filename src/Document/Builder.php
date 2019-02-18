@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi\Document;
 
 use Syzn\JsonApi\Document\Document;
-use Syzn\JsonApi\Contracts\DataInterface;
+use Syzn\JsonApi\Contracts\Document\PrimaryDataInterface;
 use Syzn\JsonApi\Contracts\JsonApiInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
 use Syzn\JsonApi\Contracts\Document\DocumentInterface;
@@ -34,11 +34,11 @@ class Builder implements BuilderInterface
     /**
      * Set the document's data top level member.
      *
-     * @param \Syzn\JsonApi\Contracts\DataInterface|null $data
+     * @param \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface|null $data
      *
      * @return \Syzn\JsonApi\Contracts\Document\BuilderInterface
      */
-    public function data(?DataInterface $data = null): BuilderInterface
+    public function data(?PrimaryDataInterface $data = null): BuilderInterface
     {
         if ($this->document->getErrors()) {
             // TODO: Throw exception:

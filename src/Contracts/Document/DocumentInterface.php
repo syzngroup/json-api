@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts\Document;
 
-use Syzn\JsonApi\Contracts\DataInterface;
+use Syzn\JsonApi\Contracts\Document\PrimaryDataInterface;
 use Syzn\JsonApi\Contracts\EncodableJsonApiStructureInterface;
 use Syzn\JsonApi\Contracts\JsonApiInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
@@ -15,9 +15,9 @@ interface DocumentInterface extends EncodableJsonApiStructureInterface
     /**
      * Retrieve document's data top level member.
      *
-     * @return \Syzn\JsonApi\Contracts\DataInterface|null
+     * @return \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface|null
      */
-    public function getData(): ?DataInterface;
+    public function getData(): ?PrimaryDataInterface;
 
     /**
      * Retrieve document's errors top level member.

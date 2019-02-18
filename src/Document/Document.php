@@ -3,7 +3,7 @@
 namespace Syzn\JsonApi\Document;
 
 use Syzn\JsonApi\Contracts\Document\DocumentInterface;
-use Syzn\JsonApi\Contracts\DataInterface;
+use Syzn\JsonApi\Contracts\Document\PrimaryDataInterface;
 use Syzn\JsonApi\Contracts\JsonApiInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
 use Syzn\JsonApi\Contracts\Links\LinksInterface;
@@ -15,7 +15,7 @@ class Document implements DocumentInterface
     /**
      * Data top level member.
      *
-     * @var \Syzn\JsonApi\Contracts\DataInterface|null
+     * @var \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface|null
      */
     private $data;
 
@@ -57,9 +57,9 @@ class Document implements DocumentInterface
     /**
      * Retrieve document's data top level member.
      *
-     * @return \Syzn\JsonApi\Contracts\DataInterface
+     * @return \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface
      */
-    public function getData() :?DataInterface
+    public function getData() :?PrimaryDataInterface
     {
         return $this->data;
     }
@@ -67,11 +67,11 @@ class Document implements DocumentInterface
     /**
      * Set document's data top level member.
      *
-     * @param \Syzn\JsonApi\Contracts\DataInterface|null $data
+     * @param \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface|null $data
      *
      * @return void
      */
-    public function setData(?DataInterface $data = null): void
+    public function setData(?PrimaryDataInterface $data = null): void
     {
         $this->data = $data;
     }

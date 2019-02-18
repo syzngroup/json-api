@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts\Document;
 
-use Syzn\JsonApi\Contracts\DataInterface;
+use Syzn\JsonApi\Contracts\Document\PrimaryDataInterface;
 use Syzn\JsonApi\Contracts\JsonApiInterface;
 use Syzn\JsonApi\Contracts\MetaInterface;
 use Syzn\JsonApi\Contracts\Document\DocumentInterface;
@@ -15,11 +15,11 @@ interface BuilderInterface
     /**
      * Set the document's data top level member.
      *
-     * @param \Syzn\JsonApi\Contracts\DataInterface $data
+     * @param \Syzn\JsonApi\Contracts\Document\PrimaryDataInterface $data
      *
      * @return \Syzn\JsonApi\Contracts\Document\BuilderInterface
      */
-    public function data(DataInterface $data): BuilderInterface;
+    public function data(PrimaryDataInterface $data): BuilderInterface;
 
     /**
      * Set the document's errors top level member.
