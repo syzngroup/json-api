@@ -2,7 +2,7 @@
 
 namespace Syzn\JsonApi\Contracts\Resources;
 
-interface QueriesMapInterface
+interface QueriesMappingInterface
 {
     /**
      * Get the allowed filtering properties.
